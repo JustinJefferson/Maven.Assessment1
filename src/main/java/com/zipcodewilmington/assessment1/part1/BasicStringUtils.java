@@ -9,7 +9,22 @@ public class BasicStringUtils {
      * @return string with identical content, and the first character capitalized
      */
     public static String camelCase(String str) {
-        return null;
+
+        String result = "";
+
+        for(int i = 0; i < str.length(); i++) {
+            if(i == 0){
+
+                String upper = String.valueOf(str.charAt(i));
+                upper = upper.toUpperCase();
+                result += upper;
+
+            }
+            else {
+                result += str.charAt(i);
+            }
+        }
+        return result;
     }
 
     /**
@@ -17,7 +32,11 @@ public class BasicStringUtils {
      * @return string with identical contents, in the reverse order
      */
     public static String reverse(String str) {
-        return null;
+
+        StringBuilder builder = new StringBuilder(str);
+        builder.reverse();
+        String reversed = builder.toString();
+        return reversed;
     }
 
     /**
@@ -25,7 +44,10 @@ public class BasicStringUtils {
      * @return string with identical contents, in reverse order, with first character capitalized
      */
     public static String reverseThenCamelCase(String str) {
-        return null;
+
+        String reverseCamel = reverse(str);
+        reverseCamel = camelCase(reverseCamel);
+        return reverseCamel;
     }
 
 
@@ -34,7 +56,20 @@ public class BasicStringUtils {
      * @return string with identical contents excluding first and last character
      */
     public static String removeFirstAndLastCharacter(String str) {
-        return null;
+
+        String result = "";
+
+        for(int i = 0; i < str.length(); i ++) {
+
+            if((i == 0) || (i == str.length() - 1)) {
+                //Do Nothing
+            }
+            else {
+                result += str.charAt(i);
+            }
+        }
+
+        return result;
     }
 
     /**
@@ -42,6 +77,23 @@ public class BasicStringUtils {
      * @return string with identical characters, each with opposite casing
      */
     public static String invertCasing(String str) {
-        return null;
+
+        String result = "";
+
+        for(int i = 0; i < str.length(); i++) {
+            char check = str.charAt(i);
+
+            if(Character.isLowerCase(check)) {
+                check = Character.toUpperCase(check);
+            }
+            else if(Character.isUpperCase(check)) {
+                check = Character.toLowerCase(check);
+            }
+
+            result += check;
+
+        }
+
+        return result;
     }
 }
