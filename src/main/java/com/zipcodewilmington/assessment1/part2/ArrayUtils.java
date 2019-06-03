@@ -1,5 +1,7 @@
 package com.zipcodewilmington.assessment1.part2;
 
+import java.util.Arrays;
+
 /**
  * Created by leon on 2/16/18.
  */
@@ -27,20 +29,22 @@ public class ArrayUtils {
      * @return an array with identical content excluding the specified `objectToRemove`
      * Given an array of objects, name `objectArray`, and an object `objectToRemove`, return an array of objects with identical contents excluding `objectToRemove`
      */
-    public static Integer[] removeValue(Integer[] objectArray, Integer objectToRemove) {
+    public static Integer[] removeValue(Object[] objectArray, Object objectToRemove) {
 
         Integer removeIndexes = getNumberOfOccurrences(objectArray, objectToRemove);
-        Integer[] removedObjectArray = new Integer[objectArray.length - removeIndexes];
+        Object[] removedObjectArray = new Object[objectArray.length - removeIndexes];
         Integer index = 0;
 
-        for(Integer check : objectArray) {
+        for(Object check : objectArray) {
             if(!check.equals(objectToRemove)) {
                 removedObjectArray[index] = check;
                 index++;
             }
         }
 
-        return removedObjectArray;
+        Integer[] integerArray = Arrays.copyOf(removedObjectArray, removedObjectArray.length, Integer[].class);
+
+        return integerArray;
     }
 
     /**
